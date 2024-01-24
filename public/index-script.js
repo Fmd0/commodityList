@@ -3,8 +3,8 @@ const headerNavUl = document.getElementById("header-nav-ul");
 const main = document.getElementById("main")
 
 
-const labelApi = "https://127.0.0.1/label";
-const commodityApi = "https://127.0.0.1/commodity"
+const labelApi = "https://127.0.0.1:10001/label";
+const commodityApi = "https://127.0.0.1:10001/commodity"
 
 const fetchLabel = async () => {
 	const response = await fetch(labelApi, {

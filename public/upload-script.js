@@ -1,7 +1,7 @@
 const formFieldset = document.getElementById("form-fieldset");
 const formButton = document.getElementById("form-button");
 
-const apiURL = "https://127.0.0.1/label";
+const apiURL = "https://127.0.0.1:10001/label";
 
 const fetchLabel = async () => {
     const response = await fetch(apiURL, {

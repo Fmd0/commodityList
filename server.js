@@ -33,16 +33,18 @@ httpServer.listen(80, () => {
 
 
 const httpsServer = https.createServer(options, app);
-httpsServer.listen(443, function () {
-    console.log("https server listening on port 443");
-    console.log("127.0.0.1:443");
+httpsServer.listen(10001, function () {
+    console.log("https server listening on port 10001");
+    console.log("127.0.0.1:10001");
 });
 
 
 // 将http 重定向到 https
 app.use((req, res, next) => {
     if (req.protocol === 'http') {
-        const secureUrl = `https://${req.hostname}${req.url}`;
+        const secureUrl = `https://${req.hostname}`+":10001"+`${req.url}`;
+        console.log(req.hostname);
+        console.log(req.url);
         res.redirect(301, secureUrl);
         console.log(secureUrl)
     } else {
