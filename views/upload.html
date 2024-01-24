@@ -1,0 +1,29 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../public/upload-style.css">
+    <script src="../public/upload-script.js" defer></script>
+    <title>Document</title>
+</head>
+<body>
+<div id="add-item">
+    <header></header>
+    <form id="form" action="../upload" method="post" enctype="multipart/form-data">
+
+        <p>
+            <input type="text" name="fileName" required/>
+        </p>
+        <fieldset id="form-fieldset">
+
+        </fieldset>
+        <p>
+            <input type="file" accept="image/*" name="commodityPic" required/>
+        </p>
+        <button type="form-button">提交</button>
+    </form>
+</div>
+</body>
+</html>

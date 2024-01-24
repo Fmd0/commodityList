@@ -1,0 +1,18 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+body {
+  font-family: PingFangSC-Regular;
+  background: linear-gradient(to top, #4F6072, #8699AA);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+fieldset {
+
+}
