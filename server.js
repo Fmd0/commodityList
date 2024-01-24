@@ -2,17 +2,18 @@ const express = require("express");
 const app=express();
 const https = require("https");
 const http = require('http');
-const fs= require("fs");
+const fs= require("node:fs");
 const multer = require("multer");
 
 require("dotenv").config(); //加载配置文件
+
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
         cb(null, 'commodityPic/')
     },
     filename: function (req, file, cb) {
-        let filename = req.body.fileName + "-" +req.body.label.join("-");
+        let filename = req.body.commodityName + "-" + req.body.commodityPrice + "-" +req.body.label.join("-");
         filename += "." + file.mimetype.split("/")[file.mimetype.split("/").length-1];
         cb(null, filename)
     }
@@ -53,20 +54,25 @@ app.use((req, res, next) => {
 app.use("/views", express.static("views"));
 app.use("/public",express.static("public"));
 app.use("/img",express.static("img"));
+app.use("/commodityPic",express.static("commodityPic"));
 
 app.post("/label", (req, res) => {
     const data = {
         label: process.env.label.split(",")
     };
     res.json(data);
-})
+});
 
 
 app.post("/upload",upload.single("commodityPic"), (req, res) => {
-    console.log(req.body);
-    // console.log(req.file);
-    const data = {
-        status: 200
-    };
-    res.json(data);
+    res.json({status: 200});
 });
+
+app.post("/commodity", (req, res) => {
+    let picArray = fs.readdirSync("commodityPic");
+    picArray = picArray.filter(pic => pic !== '.DS_Store');
+    res.json({
+        dir: "../commodityPic/",
+        picArray: picArray
+    })
+})

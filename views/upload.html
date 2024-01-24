@@ -14,7 +14,12 @@
     <form id="form" action="../upload" method="post" enctype="multipart/form-data">
 
         <p>
-            <input type="text" name="fileName" required/>
+            <label for="commodityName">商品名称： </label>
+            <input id="commodityName" type="text" name="commodityName" required/>
+        </p>
+        <p>
+            <label for="commodityPrice">商品价格： </label>
+            <input id="commodityPrice" type="number" name="commodityPrice" step="0.01" required/>
         </p>
         <fieldset id="form-fieldset">
 
